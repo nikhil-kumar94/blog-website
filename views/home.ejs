@@ -1,0 +1,38 @@
+<%- include("partials/header")-%>
+
+<div class="row">
+       <h1>Welcome to Tech Blog</h1>
+      <div class="title-div"><br>
+       <h5>You can Compose a blog and post it by following 3 easy steps</h5>
+
+         <li>Click on "Compose" bottom present on top right corner</li>
+
+         <li>Fill in the heading and Content </li>
+         <li>Click on Publish button</li>
+
+      </div>
+</div>
+
+
+
+</section>
+<div class="home-Content">
+    <h3><%= homeStartingContent.heading %> </h3>
+    <p> <%= homeStartingContent.para %> </p>
+</div><br>
+
+  <% posts.forEach(function(item)  {  %>
+
+    <% var targetRoute ="/posts/" + item.heading ; %>
+    <div class="blogItem">
+    <h3><%= item.heading %> </h3>
+     <p>
+       <%= item.content.substr(0,100) + "..." %>
+       <a href= "/posts/<%=item.heading %>">Read More</a>
+     </p>
+   </div>
+
+  <% });  %>
+
+
+<%- include("partials/footer") -%>
